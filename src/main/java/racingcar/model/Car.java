@@ -14,6 +14,10 @@ public class Car {
         locationHistory.add(0);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Integer getCurrentLocation() {
         return locationHistory.get(locationHistory.size() - 1);
     }
