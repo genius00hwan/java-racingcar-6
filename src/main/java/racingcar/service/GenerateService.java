@@ -16,8 +16,8 @@ public class GenerateService {
     private GenerateService() {
     }
 
-    public List<Car> generateCars(List<String> CarNames) {
-        return CarNames.stream()
+    public List<Car> generateCars(List<String> carNames) {
+        return carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
     }
