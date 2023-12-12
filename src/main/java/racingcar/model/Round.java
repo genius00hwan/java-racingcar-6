@@ -1,26 +1,36 @@
 package racingcar.model;
 
 public class Round {
-    private final Integer numberOfRounds;
+    private final Integer totalRounds;
     private Integer currentRound;
 
-    public Round(String inputNumberOfRounds) {
-        validateNumberOfRounds(inputNumberOfRounds);
-        this.numberOfRounds = Integer.parseInt(inputNumberOfRounds);
-        currentRound = 0;
+    public Round(Integer totalRounds) {
+        validateNumberOfRounds(totalRounds);
+        this.totalRounds = totalRounds;
+        currentRound = 1;
     }
 
     public Boolean hasMoreRound() {
-        return (numberOfRounds >= currentRound);
+        return (totalRounds >= currentRound);
     }
 
     public void completeARound() {
         currentRound++;
     }
 
-    private void validateNumberOfRounds(String inputNumberOfRounds) {
-        if (Integer.parseInt(inputNumberOfRounds) < 0) {
+    public void reset() {
+        currentRound = 1;
+    }
+
+    public Integer getCurrentRound() {
+        return currentRound;
+    }
+
+    private void validateNumberOfRounds(Integer numberOfRounds) {
+        if (numberOfRounds < 1) {
             throw new IllegalArgumentException();
         }
     }
+
+
 }
