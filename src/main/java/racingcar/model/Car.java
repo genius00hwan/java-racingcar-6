@@ -6,14 +6,12 @@ import java.util.List;
 public class Car {
     private String name;
     private List<Integer> locationHistory;
-    private Boolean winningOrNot;
 
     public Car(String name) {
         validateName(name);
         this.name = name;
         locationHistory = new ArrayList<>();
         locationHistory.add(0);
-        winningOrNot = false;
     }
 
     public Integer getCurrentLocation() {
@@ -25,13 +23,18 @@ public class Car {
         locationHistory.add(nextLocation);
     }
 
-    public Integer getLocationOfRound(Integer round){
+    public Integer getLocationOfRound(Integer round) {
         return locationHistory.get(round);
     }
+
     private void validateName(String name) {
         if (name.length() >= 5) {
             throw new IllegalArgumentException("잘못된 이름입니다.");
         }
+    }
+
+    public Boolean isWinner(Integer winningLocation) {
+        return getCurrentLocation().equals(winningLocation);
     }
 
 }
